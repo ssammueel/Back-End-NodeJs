@@ -1,0 +1,37 @@
+[
+    {
+        "fullName": "John Doe",
+        "userName": "john_doe",
+        "email": "john.doe@example.com",
+        "password": "passord123",
+        "gender": "male"
+    },
+    {
+        "fullName": "Jane Smith",
+        "userName": "jane_smith",
+        "email": "jane.smith@example.com",
+        "password": "pasword123",
+        "gender": "female"
+    },
+    {
+        "fullName": "Alice Johnson",
+        "userName": "alice_johnson",
+        "email": "alice.johnson@example.com",
+        "password": "passord123",
+        "gender": "female"
+    },
+    {
+        "fullName": "Bob Brown",
+        "userName": "bob_brown",
+        "email": "bob.brown@example.com",
+        "password": "passwrd123",
+        "gender": "male"
+    },
+    {
+        "fullName": "Charlie Davis",
+        "userName": "charlie_davis",
+        "email": "charlie.davis@example.com",
+        "password": "passwod123",
+        "gender": "male"
+    }
+]
