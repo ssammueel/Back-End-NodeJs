@@ -27,11 +27,22 @@ export const signin = async(req,res)=>{
 
 export const login = async(req,res) => {
 
-    const user = req.body
+    const {email, password} = req.body
     
     try {
-        const users = await userModel.find()
-        res.send(users)
+        const user = await userModel.findOne({email})
+
+        if(user){
+            const isMatch = await bcrypt.compare(password,user.password)    //user.password means the password in the database and the password means the password the user has used
+            if(isMatch){
+                res.send({message:"login succesfull"})
+            }else{
+                res.send({message:"wrong password"})
+            }
+
+        }else{
+            res.send({message:"wrong email"})
+        }
         
     } catch (error) {
         console.log(error)
