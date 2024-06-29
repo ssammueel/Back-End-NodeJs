@@ -31,6 +31,9 @@ export const login = async(req,res) => {
     const {email, password} = req.body
     
     try {
+        if(!email || !password){
+            return res.send({message:"all these fields are required"})
+        }
         const user = await userModel.findOne({email})
 
         if(user){
