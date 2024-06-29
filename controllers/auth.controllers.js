@@ -1,4 +1,5 @@
 import userModel from "../models/usermodel.js";
+import jwt from 'jsonwebtoken'
 import bcrypt from "bcryptjs"
 
 export const signin = async(req,res)=>{
@@ -35,7 +36,14 @@ export const login = async(req,res) => {
         if(user){
             const isMatch = await bcrypt.compare(password,user.password)    //user.password means the password in the database and the password means the password the user has used
             if(isMatch){
-                res.send({message:"login succesfull"})
+                jwt.sign({email:user.email}, 'samuel mumo mambo', (err, token)=>{
+                    if(!err){
+
+                        res.send({token:token})
+                    }else{
+                        res.send({message:"error in token generation"})
+                    }
+                })
             }else{
                 res.send({message:"wrong password"})
             }
@@ -50,7 +58,12 @@ export const login = async(req,res) => {
     
 }
 
+
 export const logout = (req,res)=> {
     res.send({message:"this is logout"})
     console.log("logout successful")
+}
+
+export const dummy = (req,res)=>{
+    res.send({message:"this is  a dummy response"})
 }

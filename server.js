@@ -12,6 +12,7 @@ app.use(express.json())
 // the Autroutes router on the "/api" path. It means that all routes defined within Autroutes will be prefixed with "/api"
 // If you define a route /login within Autroutes, it will be accessible at /api/login.
 app.use("/api",Autroutes)
+app.use("/test", Autroutes )
 
 app.listen(PORT,()=>{
     connectDb()
